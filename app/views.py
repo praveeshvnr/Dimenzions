@@ -7,15 +7,17 @@ def adminedit(request):
 
 
 def modeledit(request):
-    modelname=request.POST['modelname']
-    description=request.POST['description']
-    gib=request.FILES['gib']
-    price=request.POST['price']
-    types=request.POST['types']
-    format=request.POST['format']
-    modeltype=request.POST['modeltype']
-    category=request.POST['category']
-    fbx=request.FILES['fbx']
-    var=items(modelname=modelname,description=description,gib=gib,price=price,types=types,format=format,modeltype=modeltype,category=category,fbx=fbx)
-    var.save()
+
+    item=items.objects.get(id=2)
+    item.modelname=request.POST.get('modelname',item.modelname)
+    item.description=request.POST.get('description',item.description)
+    item.gib=request.FILES.get('gib',item.gib)
+    item.price=request.POST.get('price',item.price)
+    item.types=request.POST.get('types',item.types)
+    item.format=request.POST.get('format',item.format)
+    item.modeltype=request.POST.get('modeltype',item.modeltype)
+    item.category=request.POST.get('category',item.category)
+    item.fbx=request.FILES.get('fbx',item.fbx)
+    
+    item.save()
     return redirect('adminedit')
