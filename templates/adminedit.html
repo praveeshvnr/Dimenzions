@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
-  
+  {% for i in item %}
   <form method="post" class="post-form" action="modeledit" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form-group row">
@@ -16,7 +16,7 @@
               <label for="exampleInputUsername2" class="col-md-3 col-form-label">Model Name</label>
               <div class="col-md-9">
                 <input type="text" class="form-control" id="exampleInputUsername2" placeholder="modelname"
-                  name="modelname" />
+                  name="modelname" value="{{i.modelname}}"/>
               </div>
             </div>
 
@@ -26,7 +26,7 @@
               <label for="exampleInputEmail2" class="col-md-3 col-form-label">Description</label>
               <div class="col-md-9">
                 <textarea class="form-control" id="exampleTextarea1" rows="4" placeholder="description"
-                  name="description"></textarea>
+                  name="description" value="{{i.description}}"></textarea>
               </div>
             </div>
 
@@ -43,7 +43,7 @@
             <div class="form-group row">
               <label for="exampleInputPassword2" class="col-md-3 col-form-label">Price</label>
               <div class="col-md-9">
-                <input type="text" class="form-control" id="exampleInputPassword2" placeholder="price" name="price" />
+                <input type="text" class="form-control" id="exampleInputPassword2" placeholder="price" name="price" value="{{i.price}}" />
               </div>
             </div>
 
@@ -53,7 +53,7 @@
               <label for="exampleInputConfirmPassword2" class="col-md-3 col-form-label">Type</label>
               <div class="col-md-9">
                 <input type="text" class="form-control w-100" id="exampleInputConfirmPassword2" placeholder="type"
-                  name="types" />
+                  name="types" value="{{i.types}}" />
               </div>
             </div>
 
@@ -114,7 +114,8 @@
                 <label class="form-check-label" for="inlineRadio2">Category</label>
               </div>
               <div class="col-md-6">
-                <select class="form-select w-100" id="inlineRadio2" aria-label="Default select example" name="category" style="height: 40px;">
+                <select class="form-select w-100" id="inlineRadio2" aria-label="Default select example" name="category"
+                  style="height: 40px;">
                   <option selected>Car</option>
                   <option value="1">One</option>
                   <option value="2">Two</option>
@@ -146,6 +147,8 @@
         </div>
       </div>
     </div>
-    {% endblock%}
+    
   </form>
+  {% endfor %}
 </div>
+{% endblock %}

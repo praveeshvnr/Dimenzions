@@ -10718,9 +10718,9 @@ textarea.tt-hint {
 }
 
 .form-check-inline .form-check-input {
-  position: static;
-  margin-top: 0;
-  margin-right: 0.3125rem;
+  /* position: static;
+  margin-top: 0; */
+  /* margin-right: 0.3125rem; */
   margin-left: 0;
 }
 

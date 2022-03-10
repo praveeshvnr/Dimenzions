@@ -3,7 +3,8 @@ from .models import *
 
 # Create your views here.
 def adminedit(request):
-    return render(request,"adminedit.html")
+    item=items.objects.filter(id=2)
+    return render(request,"adminedit.html",{'item':item})
 
 
 def modeledit(request):
