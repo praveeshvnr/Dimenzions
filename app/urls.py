@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns=[
     re_path(r'^$', views.adminedit,name="adminedit"),
-    re_path(r'^modeledit$', views.modeledit,name="modeledit"),
+    re_path(r'^/modeledit$', views.modeledit,name="modeledit"),
 
    
 
